@@ -36,7 +36,7 @@ for i = deltatime : hop: N-(deltatime-1)
     H2 = renyi(abs(Spec3));
     n(i) = 2^(H1-H2);
 end
-% -------------- Fig 3 --------------------------- %%
+% -------------- Fig 1 (b) --------------------------- %%
 subplot(222);plot(t,floor(n),'b.')
 xlabel('Time (s)'); ylabel('Number of components');
 ylim([0 3])
