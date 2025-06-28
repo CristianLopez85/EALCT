@@ -365,13 +365,26 @@ for char = 1:length(xm)
     rrcon(:,char) = tmp\xtmp;
 end
 %%
-figure; set(gcf,'Color','w');%set(gcf,'Position',[20 80 800 450]);
+figure;
+rrcon1(1,1:limits1(1,1)) = zeros(1,limits1(1,1)); rrcon1(1,limits1(1,2):length(Sig)) = zeros(1,length(Sig)-limits1(1,2)+1);
+rrcon(1,1:limits(1,1)) = zeros(1,limits(1,1)); rrcon(1,limits(1,2):length(Sig)) = zeros(1,length(Sig)-limits(1,2)+1);
+
 subplot(422);plot(t,real(rrcon(1,:)),'k',t,real(rrcon1(1,:)),'b'); ylabel('Displacement (m)'); 
 title('NNM-1'); legend('NES','LO'); axis([0 1.5 -0.008 0.008]);
+
+rrcon1(2,1:limits1(2,1)) = zeros(1,limits1(2,1)); rrcon1(2,limits1(2,2):length(Sig)) = zeros(1,length(Sig)-limits1(2,2)+1);
+rrcon(2,1:limits(2,1)) = zeros(1,limits(2,1)); rrcon(2,limits(2,2):length(Sig)) = zeros(1,length(Sig)-limits(2,2)+1);
+
 subplot(423);plot(t,real(rrcon(2,:)),'k',t,real(rrcon1(2,:)),'b');ylabel('Displacement (m)'); title('NNM-2');set(gca,'fontsize',10);axis([0 1.5 -0.004 0.004]);
 title('NNM-2'); legend('NES','LO'); axis([0 1.5 -0.004 0.004]);
+
+rrcon1(3,1:limits1(3,1)) = zeros(1,limits1(3,1)); rrcon1(3,limits1(3,2):length(Sig)) = zeros(1,length(Sig)-limits1(3,2)+1);
+rrcon(3,1:limits(3,1)) = zeros(1,limits(3,1)); rrcon(3,limits(3,2):length(Sig)) = zeros(1,length(Sig)-limits(3,2)+1);
+
 subplot(421);plot(t,real(rrcon(3,:)),'k',t,real(rrcon1(3,:)),'b');ylabel('Displacement (m)'); title('Harmonic'); set(gca,'fontsize',10);axis([0 1.5 -0.002 0.002]);
 title('Harmonic'); legend('NES','LO'); axis([0 1.5 -0.003 0.003]);
+
+rrcon(4,1:limits(4,1)) = zeros(1,limits(4,1)); rrcon(4,limits(4,2):length(Sig)) = zeros(1,length(Sig)-limits(4,2)+1);
 subplot(424);plot(t,real(rrcon(4,:)),'k');ylabel('Displacement (m)'); title('Harmonic');  set(gca,'fontsize',10);axis([0 1.5 -0.0011 0.0011]);
 title('Harmonic'); legend('NES'); axis([0 1.5 -0.0011 0.0011]);
 
